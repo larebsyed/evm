@@ -19,9 +19,9 @@ module Evm
 
     def pull(commit = nil)
       Dir.chdir(@path) do
-        args = 'pull'
-        args = 'pull', '--unshallow' if commit
-        git(*args)
+          args = 'pull'
+          args = 'pull', '--depth=2000000' if commit
+          git(*args)
       end
     end
 
